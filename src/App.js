@@ -1,39 +1,15 @@
-import { Box, InputLabel, MenuItem, Select, Grid } from '@mui/material';
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, ResponsiveContainer } from 'recharts';
-import { useState } from 'react';
-import { usePapaParse } from 'react-papaparse';
+import {useData} from "./util/useData";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
-  const { readString } = usePapaParse();
-  const [data, setData] = useState();
-  const [selection, setSelection] = useState(0);
-  const [refreshKey, setRefreshKey] = useState(false);
+  const data = useData();
 
-  const handleFetch = (event) => {
-    setRefreshKey(!refreshKey);
-    fetch( './innovation_day.csv' )
-        .then( response => response.text() )
-        .then( responseText => {
-          readString(responseText, {
-            worker: true,
-            header: true,
-            complete: (results) => {
-              let filteredArr = [];
-              let resultArr = results.data;
-              resultArr.forEach((row) => {
-                  filteredArr.push(row);
-              });
-              setData(filteredArr);
-            },
-          });
-        });
-    console.log("help me")
-    console.log(data)
-  };
 
   return (
-      <button onClick={handleFetch}>Click me</button>
+      <>
+
+
+      </>
   )
 }
 
