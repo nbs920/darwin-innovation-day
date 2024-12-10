@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
 import RechartBar from "./graphs/RechartBar";
+import LineGraph from "./graphs/LineGraph";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
@@ -37,13 +38,14 @@ function App() {
         </FormControl>
         <Box margin={"3%"}>
           <Grid container spacing={2}>
-            {selectionValue != '' && (
-              <Grid item xs={5}>
-              <RechartBar data={selectedShopData}/>
-            </Grid>)}
+            {/* {selectionValue != '' && (
             <Grid item xs={5}>
-              {/* INSERT GRAPH HERE */}
-            </Grid>
+              <RechartBar data={selectedShopData}/>
+            </Grid>)} */}
+            {selectionValue != '' && (
+            <Grid item xs={5}>
+              <LineGraph data={selectedShopData}/>
+            </Grid>)}
             <Grid item xs={5}>
               {/* INSERT GRAPH HERE */}
             </Grid>
