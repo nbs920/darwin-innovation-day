@@ -12,8 +12,7 @@ function App() {
 
   const handleFetch = (event) => {
     setRefreshKey(!refreshKey);
-    setSelection(event.target.value);
-    fetch( './innovation_day_2.csv' )
+    fetch( './innovation_day.csv' )
         .then( response => response.text() )
         .then( responseText => {
           readString(responseText, {
@@ -32,6 +31,10 @@ function App() {
     console.log("help me")
     console.log(data)
   };
+
+  return (
+      <button onClick={handleFetch}>Click me</button>
+  )
 }
 
 export default App;
