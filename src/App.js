@@ -6,11 +6,12 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Grid from '@mui/material/Grid';
+import RechartBar from "./graphs/RechartBar";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
   const data = useData();
-  const [selectionValue, setSelectionValue] = useState(1)
+  const [selectionValue, setSelectionValue] = useState('');
   const [selectedShopData, setSelectedShopData] = useState([]);
 
   const handleSelectChange = (event, value) => {
@@ -22,8 +23,9 @@ function App() {
       <>
       <Box margin={"10%"}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Select Shop</InputLabel>
+          <InputLabel id="shop-label">Select Shop</InputLabel>
           <Select
+            name="Select Shop"
             value={selectionValue}
             label="Select Shop"
             onChange={handleSelectChange}
@@ -35,9 +37,10 @@ function App() {
         </FormControl>
         <Box margin={"3%"}>
           <Grid container spacing={2}>
-            <Grid item xs={5}>
-              {/* INSERT GRAPH HERE */}
-            </Grid>
+            {selectionValue != '' && (
+              <Grid item xs={5}>
+              <RechartBar data={selectedShopData}/>
+            </Grid>)}
             <Grid item xs={5}>
               {/* INSERT GRAPH HERE */}
             </Grid>
