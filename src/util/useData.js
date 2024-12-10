@@ -33,15 +33,15 @@ export default function useData () {
                         let mockShop3 = {name: "Mock Shop 3", results: []};
                         resultArr.forEach((row) => {
                             if(row["SHOP_NAME"] === "Mock Shop 1"){
-                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] === '2024'){
                                    mockShop1.results.push(row); 
                                 }
                             } else if (row["SHOP_NAME"] === "Mock Shop 2") {
-                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] === '2024'){
                                     mockShop2.results.push(row); 
                                  }
                             } else {
-                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] === '2024'){
                                     mockShop3.results.push(row); 
                                  }
                             }

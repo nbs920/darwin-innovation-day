@@ -5,8 +5,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Grid from '@mui/material/Grid';
 import RechartBar from "./graphs/RechartBar";
+import SalesByCategoryBarChart from "./graphs/SalesByCategoryBarChart";
+import {Grid2} from "@mui/material";
+import SalesByCategoryTotalPieChart from "./graphs/SalesByCategoryTotalPieChart";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
@@ -36,21 +38,22 @@ function App() {
           </Select>
         </FormControl>
         <Box margin={"3%"}>
-          <Grid container spacing={2}>
-            {selectionValue != '' && (
-              <Grid item xs={5}>
+          <Grid2 container spacing={2}>
+            {selectionValue !== '' && (
+                <Grid2>
+              <Grid2 item xs={5}>
               <RechartBar data={selectedShopData}/>
-            </Grid>)}
-            <Grid item xs={5}>
+            </Grid2>
+                  <Grid2 direction="row" spacing={2}>
+                    <SalesByCategoryTotalPieChart data={selectedShopData}/>
+                    <SalesByCategoryBarChart data={selectedShopData}/>
+                  </Grid2>
+            <Grid2 item xs={5}>
               {/* INSERT GRAPH HERE */}
-            </Grid>
-            <Grid item xs={5}>
-              {/* INSERT GRAPH HERE */}
-            </Grid>
-            <Grid item xs={5}>
-              {/* INSERT GRAPH HERE */}
-            </Grid>
-          </Grid>
+            </Grid2>
+                </Grid2>
+          )}
+          </Grid2>
         </Box>
       </Box>
       </>
