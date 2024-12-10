@@ -38,10 +38,10 @@ function App() {
         </FormControl>
         <Box margin={"3%"}>
           <Grid container spacing={2}>
-            {/* {selectionValue != '' && (
+            {selectionValue != '' && (
             <Grid item xs={5}>
               <RechartBar data={selectedShopData}/>
-            </Grid>)} */}
+            </Grid>)}
             {selectionValue != '' && (
             <Grid item xs={5}>
               <LineGraph data={selectedShopData}/>
