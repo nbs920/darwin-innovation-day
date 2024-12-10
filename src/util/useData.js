@@ -1,5 +1,14 @@
 import {readString} from "react-papaparse";
 
+const monthArr = [
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November"
+];
+
 export function useData () {
     let filteredArr = [];
     fetch( '../innovation_day.csv' )
@@ -15,11 +24,17 @@ export function useData () {
                         let mockShop3 = {name: "Mock Shop 3", results: []};
                         resultArr.forEach((row) => {
                             if(row["SHOP_NAME"] === "Mock Shop 1"){
-                                mockShop1.results.push(row)
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                   mockShop1.results.push(row); 
+                                }
                             } else if (row["SHOP_NAME"] === "Mock Shop 2") {
-                                mockShop2.results.push(row)
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                    mockShop2.results.push(row); 
+                                 }
                             } else {
-                                mockShop3.results.push(row)
+                                if(monthArr.includes(row["MONTH"]) && row["YEAR"] == '2024'){
+                                    mockShop3.results.push(row); 
+                                 }
                             }
                         });
                         filteredArr.push(mockShop1);
