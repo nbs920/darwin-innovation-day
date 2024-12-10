@@ -9,6 +9,17 @@ const monthArr = [
     "November"
 ];
 
+const my_sort = (arr) => {
+    var months = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+    console.log("AHHHHHHH")
+    console.log(arr)
+    arr.sort(function(a, b){
+        return months.indexOf(a["MONTH"])
+                - months.indexOf(b["MONTH"]);
+    });
+}
+
 export function useData () {
     let filteredArr = [];
     fetch( '../innovation_day.csv' )
@@ -41,9 +52,11 @@ export function useData () {
                         filteredArr.push(mockShop2);
                         filteredArr.push(mockShop3);
                         console.log("NATES ARRAY", filteredArr);
+                        filteredArr.forEach((element) => {
+                            element.results = my_sort(element.results)
+                        })
                     },
                 });
             });
-        console.log("help me")
     return filteredArr;
-    }
+}
