@@ -24,7 +24,7 @@ const SimpleArea = (props) => {
 
     return (<>
         <Box margin={"2%"}>
-            <AreaChart width={730} height={400} data={formattedArr}
+            <AreaChart width={1000} height={400} data={formattedArr}
                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>
                     <linearGradient id="colorLabor" x1="0" y1="0" x2="0" y2="1">

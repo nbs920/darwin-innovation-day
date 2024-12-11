@@ -32,17 +32,10 @@ const SalesByCategoryBarChart = (props) => {
     return(
         <>
                 <Box margin={"2%"}>
-                    <Typography variant={"h3"}>Sales By Catergory</Typography>
                     <BarChart
                         width={1000}
-                        height={600}
+                        height={400}
                         data={formattedArr}
-                        margin={{
-                            top: 5,
-                            right: 30,
-                            left: 20,
-                            bottom: 5,
-                        }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name"/>
