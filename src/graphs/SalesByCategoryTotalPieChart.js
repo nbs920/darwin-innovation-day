@@ -1,5 +1,4 @@
 import {Cell, Legend, Pie, PieChart} from "recharts";
-import Box from "@mui/material/Box";
 
 const SalesByCategoryTotalPieChart = (props) => {
 
@@ -19,12 +18,25 @@ const SalesByCategoryTotalPieChart = (props) => {
 
     console.log('NATES FORMATTED ARRAY', formattedArr);
 
+    let partsSalesTotal=0;
+    let laborSalesTotal=0;
+    let subletSalesTotal=0;
+    let paintAndMaterialSalesTotal=0;
+    let otherSalesTotal=0;
+    for ( let i = 0; i < formattedArr.length; i++) {
+        partsSalesTotal += formattedArr[i].Parts_Sales;
+        laborSalesTotal += formattedArr[i].Labor_Sales;
+        subletSalesTotal += formattedArr[i].Sublet_Sales;
+        paintAndMaterialSalesTotal += formattedArr[i].Paint_Material_Sales;
+        otherSalesTotal += formattedArr[i].Other_Sales;
+    }
+
     const finalData = [
-        {name: 'Parts Sales', value: formattedArr[0].Parts_Sales},
-        {name: 'Labor Sales', value: formattedArr[0].Labor_Sales},
-        {name: 'Sublet Sales', value: formattedArr[0].Sublet_Sales},
-        {name: 'Paint and Material Sales', value: formattedArr[0].Paint_Material_Sales},
-        {name: 'Other Sales', value: formattedArr[0].Other_Sales}
+        {name: 'Parts Sales', value: partsSalesTotal},
+        {name: 'Labor Sales', value: laborSalesTotal},
+        {name: 'Sublet Sales', value: subletSalesTotal},
+        {name: 'Paint and Material Sales', value: paintAndMaterialSalesTotal},
+        {name: 'Other Sales', value: otherSalesTotal}
     ]
 
     console.log('NATES DATA',finalData);

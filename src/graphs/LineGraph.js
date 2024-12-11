@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Label } from 'recharts';
 
 const LineGraph = (props) => {
@@ -8,7 +8,7 @@ const LineGraph = (props) => {
     data.results.forEach((row) => {
         formattedArr.push({
             name: row['MONTH'],
-            Paint_Hours_Per_RO: parseFloat((parseFloat(row['PAINT_LABOUR_HOURS']) / parseFloat(row['RO_COUNT'])).toFixed(2)),
+            'PAINT HOURS / RO': parseFloat((parseFloat(row['PAINT_LABOUR_HOURS']) / parseFloat(row['RO_COUNT'])).toFixed(2)),
             Shop_Goal: 9.5
         })
     });
@@ -18,21 +18,15 @@ const LineGraph = (props) => {
     return(
         <>
         <Box
-        sx={{ p: 1, borderRadius: 2 }}
-        boxShadow={5}
-        width={"250%"}>
-        <Box margin={"2%"}>
+        sx={{ p: 1, borderRadius: 3 }}
+        boxShadow={5}>
+        <Box marginTop={"2%"} marginLeft={"2%"}>
+            <Typography fontSize={25} fontWeight={'bold'}>Paint Hours / RO</Typography>
+            </Box>
             <LineChart
-            width={1000}
-            height={300}
-            data={formattedArr}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
-            >
+            width={600}
+            height={232}
+            data={formattedArr}>
             <CartesianGrid strokeDasharray="1 1" />
             <XAxis dataKey="name" />
             <YAxis domain={["dataMin","dataMax"]}/>
@@ -46,12 +40,12 @@ const LineGraph = (props) => {
             </defs>
             <Tooltip />
             <Legend />
-            {/* <Line type="monotone" dataKey="Paint_Hours_Per_RO" stroke="black" activeDot={{ r: 8 }} /> */}
-            <Line type="monotone" dataKey="Paint_Hours_Per_RO" stroke="url(#colorGradient)" strokeWidth={2}/>
+            {/* <Line type="monotone" dataKey="'PAINT HOURS PER RO'" stroke="black" activeDot={{ r: 8 }} /> */}
+            <Line type="monotone" dataKey="PAINT HOURS / RO" stroke="url(#colorGradient)" strokeWidth={2}/>
             <ReferenceLine isFront='true' strokeDasharray="3 3" y={9.5} stroke="black" label={<Label value="Shop Goal < 9.5 Hours" offset={0} position="bottom"/>} />
             </LineChart>
         </Box>
-        </Box>
+
         </>
     );
 }

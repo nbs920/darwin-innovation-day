@@ -25,13 +25,12 @@ const StackedArea = (props) => {
     return (<>
         <Box margin={"2%"}>
             <AreaChart
-                width={730}
+                width={600}
                 height={400}
                 data={formattedArr}
                 margin={{
                     top: 10, right: 30, left: 0, bottom: 0,
-                }}
-            >
+                }}>
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis dataKey="name"/>
                 <YAxis domain={['dataMin', 'dataMax']}/>
