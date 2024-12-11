@@ -9,6 +9,7 @@ import RechartBar from "./graphs/RechartBar";
 import SalesByCategoryBarChart from "./graphs/SalesByCategoryBarChart";
 import {Grid2} from "@mui/material";
 import SalesByCategoryTotalPieChart from "./graphs/SalesByCategoryTotalPieChart";
+import StackedArea from "./graphs/StackedArea";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
@@ -49,7 +50,7 @@ function App() {
                     <SalesByCategoryBarChart data={selectedShopData}/>
                   </Grid2>
             <Grid2 item xs={5}>
-              {/* INSERT GRAPH HERE */}
+              <StackedArea data={selectedShopData}/>
             </Grid2>
                 </Grid2>
           )}
