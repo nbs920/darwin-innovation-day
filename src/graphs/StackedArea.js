@@ -25,7 +25,7 @@ const StackedArea = (props) => {
     return (<>
         <Box margin={"2%"}>
             <AreaChart
-                width={500}
+                width={730}
                 height={400}
                 data={formattedArr}
                 margin={{
@@ -34,7 +34,7 @@ const StackedArea = (props) => {
             >
                 <CartesianGrid strokeDasharray="3 3"/>
                 <XAxis dataKey="name"/>
-                <YAxis tick={false} domain={[0, 'dataMax']}/>
+                <YAxis domain={['dataMin', 'dataMax']}/>
                 <Legend verticalAlign="top" height={36}/>
                 <Tooltip/>
                 <Area type="monotone" dataKey="OTHER" stackId="1" stroke="#bf04bb" fill="#bf04bb"/>

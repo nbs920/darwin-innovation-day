@@ -10,6 +10,7 @@ import SalesByCategoryBarChart from "./graphs/SalesByCategoryBarChart";
 import {Grid2} from "@mui/material";
 import SalesByCategoryTotalPieChart from "./graphs/SalesByCategoryTotalPieChart";
 import StackedArea from "./graphs/StackedArea";
+import SimpleArea from "./graphs/SimpleArea";
 
 function App() {
   // bring in different charting packages/libraries and expirement with loading times, looks, etc.
@@ -50,6 +51,7 @@ function App() {
                     <SalesByCategoryBarChart data={selectedShopData}/>
                   </Grid2>
             <Grid2 item xs={5}>
+              <SimpleArea data={selectedShopData}/>
               <StackedArea data={selectedShopData}/>
             </Grid2>
                 </Grid2>
